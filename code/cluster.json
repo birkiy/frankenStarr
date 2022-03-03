@@ -6,21 +6,14 @@
     "time" : "23:59:00",
     "partition" :"normal,big-mem,long"
   },
-  "SRAprefetch" : {"c" :4, "mem":"80G"},
-  "ParallelFastqDump" :  {"c" :32, "mem":"320G"},
   "Links" : {"c" :2, "mem":"20G"},
 
   "MappingBWA" : {"c" :32, "mem":"640G"},
   "BamProcess" : {"c" :32, "mem":"640G"},
-  "Pool" : {"c" :32, "mem":"640G"},
 
   "Fragment" : {"c" :10, "mem":"320G"},
   "Filter" : {"c" :32, "mem":"320G"},
-  "CountTile" : {"c" :32, "mem":"320G"},
-
-  "BamCom" : {"c" :32, "mem":"320G"},
-  "BamCov" : {"c" :32, "mem":"320G"}
-
+  "CountTile" : {"c" :32, "mem":"320G"}
 }
 
 

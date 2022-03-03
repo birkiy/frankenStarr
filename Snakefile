@@ -10,8 +10,6 @@ rule all:
                 desiredOutput=desiredOutputList)
 
 
-include: "rules/links.smk"
 include: "rules/mapping.smk"
 include: "rules/tiles.smk"
-include: "rules/bigwig.smk"
 

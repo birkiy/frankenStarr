@@ -20,6 +20,14 @@ config = {
 }
 
 
+REFERENCE = "hg19"
+
+bwaIdx = config[REFERENCE]["idx"]["bwa"]
+blacklist = config[REFERENCE]["blacklist"]
+
+################################################################################
+
+on = "Raw"
 
 
 sampleDF = pd.read_table(f"code/samples.tsv")
@@ -27,19 +35,8 @@ sampleDF = pd.read_table(f"code/samples.tsv")
 
 counts = [
     f"results/tile/tile-{raw}.raw.count"
-    for raw in sampleDF["Raw"]
+    for raw in sampleDF[on]
 ]
 
-bw = [
-    f"results/bigwig/{sampleName}.{type}.bw"
-    for sampleName in  set(sampleDF.loc[sampleDF["SampleName"].str.find("input") == -1, "Raw"])
-    for type in ["RPKM"]
-] + [
-    f"results/bigwig/{sampleName}.{type}.bamcov.bw"
-    for sampleName in  set(sampleDF.loc[:,"Raw"])
-    for type in ["RPKM"]
-]
-
-
-desiredOutputList = bw + counts
+desiredOutputList = bw
 

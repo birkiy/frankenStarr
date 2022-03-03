@@ -3,7 +3,7 @@
 
 rule Fragment:
         input:
-                "results/mapping/raw/{raw}.bam"
+                "results/mapping/{raw}.raw.bam"
         output:
                 "results/tile/{raw}.bedpe"
         message:
@@ -29,7 +29,7 @@ rule Filter:
                 awk '{{if ($8 > 30) print $0}}' {input} | \
                 cut -f 1,2,6,7 | \
                 sort -k 1,1 -k 2,2n --parallel={threads} | \
-                bedtools intersect -v -a - -b {config[hg19][blacklist]} > {output}
+                bedtools intersect -v -a - -b {blacklist} > {output}
                 """
 
 
